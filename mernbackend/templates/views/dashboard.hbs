@@ -174,68 +174,86 @@
                     <thead class="bg-secondary text-dark">
                         <tr>
                             <th>Destination</th>
-                            <th>Price/head</th>
+                            <th>Mode of Transport</th>
                             <th>Date</th>
                            
-                            
+                            <th>View Trip</th>
                             <th>Add Trip</th>
                         </tr>
                     </thead>
                     <tbody class="align-middle">
+
+                 {{!-- {{#x.forEach((y)=>{}}     --}}
+                    {{#each p}}
+                    
                         <tr>
-                            <td class="align-middle"><img src="Pictures/Cycle1" alt="" style="width: 50px;"> Rishikesh</td>
-                            <td class="align-middle">$150</td>
-                            <td>asdf</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-check"></i></button></td>
-                           
-                        </tr>
-                        
-                        <tr>
+                            <td class="align-middle"><img src="Pictures/Cycle1" alt="" style="width: 50px;">{{place}}</td>
+                            <td class="align-middle">{{transport}}</td>
+                            <td>To be Decided</td>
+                            <td class="align-middle"><a href="/tourscreen/{{_id}}/" id="checkbox" ><button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></button></a></td>
+                              <td class="align-middle"><a href="/dashboard/{{_id}}" id="checkbox" ><button class="btn btn-sm btn-primary"><i class="fa fa-check"></i></button></a></td> 
+
+                        </tr>  
+                        {{/each}} 
+                    {{!-- {{})}}       --}}
+                        {{!-- <tr>
                             <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Shimla</td>
                             <td class="align-middle">$150</td>
-                            <td>asdf</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-check"></i></button></td>
+                            <td>To be Decided</td>
+                            <td class="align-middle"> <a href="/tourscreen"><button onclick="renderTravelPage()" class="btn btn-sm btn-primary" id="ShimlaButton"><i class="fa fa-check"></i></button></a></td>
                           
                         </tr>
                       
                         <tr>
                             <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Auli </td>
                             <td class="align-middle">$150</td>
-                            <td>asdf</td>
+                            <td>To be Decided</td>
                            
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-check"></i></button></td>
+                            <td class="align-middle"><a href="/tourscreen"><button class="btn btn-sm btn-primary" id="AuliButton"><i class="fa fa-check"></i></button></a></td>
                         
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="col-lg-4">
-                <form class="mb-5" action="">
+              <div class="col-lg-4">
                     
-                </form> -->
-                <!--<div class="card border-secondary mb-5">
+               
+                <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
-                        <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+                        <h4 class="font-weight-semi-bold m-0">Create a Trip</h4>
                     </div>
                     <div class="card-body">
+                 <form class="mb-5" action="/tourscreen" method="POST">
+
                         <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">$150</h6>
+                            <input type="text" placeholder="Where To Go?" name="place" required>                            
                         </div>
+                         <div class="d-flex justify-content-between mb-3 pt-1">
+                            <input type="text" placeholder="How to Go?(Transport)" name="transport" required>                            
+                        </div>
+                          {{!-- <p>Add an Image:  
+                                    <label for="myfile">Select a file:</label>
+                                    <input type="file" id="myfile" name="myfile">
+                         </p> --}}
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <p>Friends to Accompany:
+                           <select name="friends" id="Item_Type" required>
+                             <option value="" >--Choose your Travel Partners--</option>  
+                        {{#each a}}           <option value="{{name}}">{{name}}</option> {{/each}}
+                              
+                           </select>
+                            </p>
                         </div>
-                    </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">$160</h5>
+                         <div class="d-flex justify-content-between mb-3 pt-1">
+                            <input type="text" id="blocktext" placeholder="Details about the trip" name="details" required>                            
                         </div>
-                       
-                    </div>
-                </div>
-            </div>-->
+                        
+                     <p>  <input type="submit" value="SUBMIT" id="creatingTrip" onclick="renderagain()" required></p>
+
+                    </form>
+             </div>
+                  
+            </div>
         </div>
     </div>
     <!-- Cart End -->
@@ -281,13 +299,24 @@
     </div>
     <!-- Footer End -->
 
+    <script>
+       
+      const button= document.getElementsByClassName("fa fa-check")
+    
+        function rendertourscreen(){
+            
+            
+       
+        }
+
+    </script>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {{!-- <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></scrip>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
@@ -298,6 +327,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script defer src="../../public/js/dashboard.js"></script> --}}
 </body>
 
 </html>

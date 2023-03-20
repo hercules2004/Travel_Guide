@@ -9597,7 +9597,7 @@
     height: 300px;
   }
   .pm{
-    width: 200px;
+    width: 450px;
     height: 200px;
   }
   .w-px{
@@ -9610,5 +9610,9 @@
     padding-left: 100px;
   }
   #headache{
-    width: 2000px;;
+    width: 1400px;;
+  }
+  #blocktext{
+    width: 500px;
+    height: 50px;
   }
